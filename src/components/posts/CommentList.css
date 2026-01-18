@@ -62,14 +62,24 @@
 
 .comment-like,
 .comment-dislike {
+  background: none;
+  border: 1px solid #d1d9e0;
+  border-radius: 4px;
+  padding: 4px 8px;
   cursor: pointer;
+  font-size: 13px;
+  color: #656d76;
 }
 
 .comment-like:hover {
+  background: #ddf4ff;
+  border-color: #0969da;
   color: #0969da;
 }
 
 .comment-dislike:hover {
+  background: #ffebe9;
+  border-color: #d1242f;
   color: #d1242f;
 }
 

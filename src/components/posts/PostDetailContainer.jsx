@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getPost, deletePost } from '../../api/posts'
-import { createComment } from '../../api/comments'
+import { createComment, likeComment, dislikeComment } from '../../api/comments'
 import PostDetail from './PostDetail'
 import './PostDetailContainer.css'
 
@@ -62,6 +62,24 @@ function PostDetailContainer() {
     }
   }
 
+  const handleLike = async (commentId) => {
+    try {
+      await likeComment(postId, commentId)
+      await fetchPost()
+    } catch (err) {
+      alert('좋아요에 실패했습니다.')
+    }
+  }
+
+  const handleDislike = async (commentId) => {
+    try {
+      await dislikeComment(postId, commentId)
+      await fetchPost()
+    } catch (err) {
+      alert('싫어요에 실패했습니다.')
+    }
+  }
+
   if (loading) {
     return <div className="loading">로딩 중...</div>
   }
@@ -88,6 +106,8 @@ function PostDetailContainer() {
       <PostDetail
         post={post}
         onCommentSubmit={handleCommentSubmit}
+        onLike={handleLike}
+        onDislike={handleDislike}
         commentLoading={commentLoading}
       />
     </div>

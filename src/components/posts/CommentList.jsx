@@ -1,7 +1,7 @@
 import CommentWrite from './CommentWrite'
 import './CommentList.css'
 
-function CommentList({ comments, onCommentSubmit, commentLoading }) {
+function CommentList({ comments, onCommentSubmit, onLike, onDislike, commentLoading }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleString('ko-KR')
@@ -23,8 +23,18 @@ function CommentList({ comments, onCommentSubmit, commentLoading }) {
               </div>
               <div className="comment-content">{comment.content}</div>
               <div className="comment-actions">
-                <span className="comment-like">👍 {comment.likes}</span>
-                <span className="comment-dislike">👎 {comment.dislikes}</span>
+                <button
+                  className="comment-like"
+                  onClick={() => onLike(comment.id)}
+                >
+                  👍 {comment.likes}
+                </button>
+                <button
+                  className="comment-dislike"
+                  onClick={() => onDislike(comment.id)}
+                >
+                  👎 {comment.dislikes}
+                </button>
               </div>
             </div>
           ))}
