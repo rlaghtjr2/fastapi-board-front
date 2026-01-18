@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './PostEdit.css'
 
 function PostEdit({ post, onSubmit, onCancel, loading }) {
-  const [title, setTitle] = useState(post.title)
+  const [title, setTitle] = useState(post.name)
   const [content, setContent] = useState(post.content)
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function PostEdit({ post, onSubmit, onCancel, loading }) {
       return
     }
     onSubmit({
-      title,
+      name: title,
       content
     })
   }

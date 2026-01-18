@@ -11,7 +11,7 @@ function PostDetail({ post }) {
     <div className="post-detail">
       <div className="post-card">
         <div className="post-header">
-          <h1 className="post-title">{post.title}</h1>
+          <h1 className="post-title">{post.name}</h1>
           <div className="post-meta">
             <span className="post-author">{post.created_user}</span>
             <span className="post-date">{formatDate(post.created_datetime)}</span>

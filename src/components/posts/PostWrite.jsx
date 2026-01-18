@@ -13,7 +13,7 @@ function PostWrite({ onSubmit, onCancel, loading }) {
       return
     }
     onSubmit({
-      title,
+      name: title,
       content,
       created_user: author
     })

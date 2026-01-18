@@ -27,7 +27,7 @@ function PostList({ posts }) {
         >
           <span className="post-id">#{post.id}</span>
           <div className="post-content">
-            <div className="post-title">{post.title}</div>
+            <div className="post-title">{post.name}</div>
             <div className="post-meta">
               <span>{post.created_user}</span>
             </div>
