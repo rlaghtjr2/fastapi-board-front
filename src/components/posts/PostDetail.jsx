@@ -1,7 +1,7 @@
 import CommentList from './CommentList'
 import './PostDetail.css'
 
-function PostDetail({ post }) {
+function PostDetail({ post, onCommentSubmit, commentLoading }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleString('ko-KR')
@@ -21,7 +21,11 @@ function PostDetail({ post }) {
           <p>{post.content}</p>
         </div>
       </div>
-      <CommentList comments={post.comments} />
+      <CommentList
+        comments={post.comments}
+        onCommentSubmit={onCommentSubmit}
+        commentLoading={commentLoading}
+      />
     </div>
   )
 }

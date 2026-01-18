@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getPost, deletePost } from '../../api/posts'
+import { createComment } from '../../api/comments'
 import PostDetail from './PostDetail'
 import './PostDetailContainer.css'
 
@@ -10,20 +11,21 @@ function PostDetailContainer() {
   const [post, setPost] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [commentLoading, setCommentLoading] = useState(false)
+
+  const fetchPost = async () => {
+    try {
+      setLoading(true)
+      const data = await getPost(postId)
+      setPost(data)
+    } catch (err) {
+      setError('게시글을 불러오는데 실패했습니다.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        setLoading(true)
-        const data = await getPost(postId)
-        setPost(data)
-      } catch (err) {
-        setError('게시글을 불러오는데 실패했습니다.')
-      } finally {
-        setLoading(false)
-      }
-    }
-
     fetchPost()
   }, [postId])
 
@@ -45,6 +47,18 @@ function PostDetailContainer() {
       navigate('/')
     } catch (err) {
       alert('삭제에 실패했습니다.')
+    }
+  }
+
+  const handleCommentSubmit = async (commentData) => {
+    try {
+      setCommentLoading(true)
+      await createComment(postId, commentData)
+      await fetchPost()
+    } catch (err) {
+      alert('댓글 작성에 실패했습니다.')
+    } finally {
+      setCommentLoading(false)
     }
   }
 
@@ -71,7 +85,11 @@ function PostDetailContainer() {
           </button>
         </div>
       </div>
-      <PostDetail post={post} />
+      <PostDetail
+        post={post}
+        onCommentSubmit={handleCommentSubmit}
+        commentLoading={commentLoading}
+      />
     </div>
   )
 }
