@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import { getPosts } from '../../api/posts'
 import PostList from './PostList'
 import './PostListContainer.css'
 
 function PostListContainer() {
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -30,6 +32,11 @@ function PostListContainer() {
     navigate('/posts/new')
   }
 
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
+
   if (loading) {
     return <div className="loading">로딩 중...</div>
   }
@@ -42,9 +49,15 @@ function PostListContainer() {
     <div className="post-list-container">
       <div className="post-list-header">
         <h1>게시판</h1>
-        <button className="write-button" onClick={handleWrite}>
-          글쓰기
-        </button>
+        <div className="header-actions">
+          <span className="user-info">{user?.name}님</span>
+          <button className="logout-button" onClick={handleLogout}>
+            로그아웃
+          </button>
+          <button className="write-button" onClick={handleWrite}>
+            글쓰기
+          </button>
+        </div>
       </div>
       <PostList posts={posts} />
     </div>
