@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/auth/callback" element={<AuthCallback />} />
+        <Route path="/auth/naver/callback" element={<AuthCallback />} />
         <Route
           path="/"
           element={

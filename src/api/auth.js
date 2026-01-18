@@ -10,7 +10,7 @@ const api = axios.create({
 
 // 네이버 OAuth 설정
 const NAVER_CLIENT_ID = 'VI9GC_4BX7qUvytJ8rEa'
-const NAVER_REDIRECT_URI = `${window.location.origin}/auth/callback`
+const NAVER_REDIRECT_URI = `${window.location.origin}/auth/naver/callback`
 
 // 네이버 로그인 URL 생성
 export const getNaverLoginUrl = () => {
@@ -36,7 +36,9 @@ export const loginWithNaver = async (code, state) => {
   }
   localStorage.removeItem('oauth_state')
 
-  const response = await api.post('/auth/naver/callback', { code, state })
+  const response = await api.get('/auth/naver/callback', {
+    params: { code, state }
+  })
   return response.data
 }
 
