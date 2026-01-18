@@ -1,0 +1,97 @@
+.post-edit {
+  background: #fff;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.post-edit .form-group {
+  margin-bottom: 16px;
+}
+
+.post-edit .form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2328;
+  margin-bottom: 8px;
+}
+
+.post-edit .form-group input,
+.post-edit .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f2328;
+  font-family: inherit;
+}
+
+.post-edit .form-group input:disabled {
+  background: #f6f8fa;
+  color: #656d76;
+}
+
+.post-edit .form-group input:focus,
+.post-edit .form-group textarea:focus {
+  outline: none;
+  border-color: #0969da;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+}
+
+.post-edit .form-group input::placeholder,
+.post-edit .form-group textarea::placeholder {
+  color: #656d76;
+}
+
+.post-edit .form-group textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.post-edit .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #d1d9e0;
+}
+
+.post-edit .cancel-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f2328;
+  cursor: pointer;
+}
+
+.post-edit .cancel-button:hover {
+  background: #f6f8fa;
+}
+
+.post-edit .submit-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: #1f883d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.post-edit .submit-button:hover {
+  background: #1a7f37;
+}
+
+.post-edit .submit-button:disabled,
+.post-edit .cancel-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

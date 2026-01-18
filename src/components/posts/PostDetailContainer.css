@@ -1,0 +1,74 @@
+.post-detail-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.post-detail-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.back-button {
+  background: none;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #656d76;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: #f6f8fa;
+  color: #1f2328;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f2328;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background: #f6f8fa;
+}
+
+.delete-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #d1242f;
+  border-radius: 6px;
+  background: #fff;
+  color: #d1242f;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #ffebe9;
+}
+
+.loading,
+.error {
+  padding: 40px;
+  text-align: center;
+  color: #656d76;
+}
+
+.error {
+  color: #d1242f;
+}

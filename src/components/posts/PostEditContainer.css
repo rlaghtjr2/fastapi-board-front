@@ -1,0 +1,31 @@
+.post-edit-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.post-edit-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2328;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d1d9e0;
+}
+
+.post-edit-container .error {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: #ffebe9;
+  border: 1px solid #d1242f;
+  border-radius: 6px;
+  color: #d1242f;
+  font-size: 14px;
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: #656d76;
+}
